@@ -162,13 +162,26 @@ else{
             console.log("not eligible, you have gotten one!")
 
 }
+
 let firstcard=10
-let secondcard=9
+let secondcard=11
+let cards=[firstcard,secondcard]
 let sum2 = firstcard +secondcard
 let hasblackjack=false
 let isalive = true
 let message1  = ""
+let messageEl=document.getElementById("message1-el")
+let summEl=document.getElementById("sum2-el")
+
+let cardEL=document.getElementById("cards-el")
+
+console.log(summEl)
 function startGame(){
+    renderGame()
+}
+function  renderGame(){ 
+    cardEL.textContent="Cards: " + cards[0] + " " + cards[1] 
+    summEl.textContent="Sum: " + sum2
 if (sum2<=20){
    message1=("do you want to draw a new card? 😊")
 
@@ -181,12 +194,14 @@ else{
         message1=("you'r out of game!😒")
 isalive=false
 }
+messageEl.textContent=message1
 }
 
- console.log(message1)
-// console.log(5>2)//true
-// console.log(12>12)//false
-// console.log(3<0)//false
-// console.log(3>=3)//true
-// console.log(11<=11)//true
-// console.log(3<=2)//false
+function Card(){
+    console.log("Drawing a new card from the door")
+let card=8
+sum2 += card
+ renderGame()
+}
+
+
