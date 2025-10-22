@@ -163,8 +163,8 @@ else{
 
 }
 
-let firstcard=10
-let secondcard=11
+let firstcard=getrandomcard()
+let secondcard=getrandomcard()
 let cards=[firstcard,secondcard]
 let sum2 = firstcard +secondcard
 let hasblackjack=false
@@ -172,7 +172,9 @@ let isalive = true
 let message1  = ""
 let messageEl=document.getElementById("message1-el")
 let summEl=document.getElementById("sum2-el")
-
+function getrandomcard(){
+    return 5
+}
 let cardEL=document.getElementById("cards-el")
 
 console.log(summEl)
@@ -180,7 +182,11 @@ function startGame(){
     renderGame()
 }
 function  renderGame(){ 
-    cardEL.textContent="Cards: " + cards[0] + " " + cards[1] 
+    cardEL.textContent="Cards: "
+    for (let i=0;i<cards.length;i++){
+        cardEL.textContent += cards[i] + " "
+        console.log(cards[i])
+    } 
     summEl.textContent="Sum: " + sum2
 if (sum2<=20){
    message1=("do you want to draw a new card? 😊")
@@ -198,10 +204,80 @@ messageEl.textContent=message1
 }
 
 function Card(){
-    console.log("Drawing a new card from the door")
-let card=8
+let card=getrandomcard()
 sum2 += card
+cards.push(card)
+console.log(cards)
  renderGame()
 }
+let featuredposts =[
+    "check out my netflix clone", "here is the code for my project",
+     "i've just relaunched my portfolio"
+]
+console.log(featuredposts[0],featuredposts[1],featuredposts[2])
+let cv =[
+    "i m doing web development",
+    "i m currently doing bachelor's",
 
+]
+let experience = [
+    "CEO at Scrimba",
+    "Frontend developer at Xenta",
+    "People counter at Norstat"
+]
+console.log(experience[1])
+console.log(experience[2])
+console.log(experience[0])
+console.log(featuredposts.length)
+let per = [
+    "minahil",15,true
+]
+let car=[7,8]
+car.push(6)
+console.log(car)
 
+let messages = [
+    "hey,how's it going",
+    "i'm great,thank you! how about you",
+]
+let newmessages="same here!"
+messages.push(newmessages)
+console.log( messages )
+console.log( messages[0] )
+console.log( messages [1])
+console.log( messages [2])
+//messages.splice(0,1)
+//console.log( messages )
+//messages.pop()
+//console.log( messages )
+for (let i = 0 ; i < messages.length;i +=1){
+    console.log(messages[i])
+}
+let conts=[7,3,9]
+for ( let i =0;i<conts.length;i+=1){
+    console.log(conts[i])
+}
+let sentence = ["helo","my","name","is","per"]
+let greetingEl=document.getElementById("greetings-el")
+for (let i =0;i<sentence.length;i++){
+    greetingEl.innerText += sentence[i] + " "
+    console.log(sentence[i])
+}
+let player1=102
+let player2=107
+function getfasterracetime(){
+if(player1 < player2){
+    return player1
+}else if (player1 > player2){
+    return player2
+}else {
+    return player1
+}
+}
+let fastestrace= getfasterracetime()
+console.log(fastestrace)
+function racetime(){
+    return player1+player2
+}
+let race = racetime()
+console.log(race)
